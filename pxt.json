@@ -1,5 +1,5 @@
 {
-    "name": "ws4-radio-tx",
+    "name": "microbit-lpq",
     "description": "",
     "dependencies": {
         "core": "*",
@@ -7,7 +7,9 @@
         "microphone": "*",
         "pxt-DS3231": "github:keble6/pxt-ds3231#v1.0.1",
         "BMP280": "github:makecode-extensions/bmp280#v1.1.0",
-        "pxt-DHT11_DHT22": "github:alankrantas/pxt-dht11_dht22#v0.0.3"
+        "pxt-DHT11_DHT22": "github:alankrantas/pxt-dht11_dht22#v0.0.3",
+        "i2cLCD1602": "github:makecode-extensions/i2clcd1602#v1.5.0",
+        "TM1650": "github:makecode-extensions/tm1650#v1.1.0"
     },
     "files": [
         "main.blocks",
@@ -17,6 +19,10 @@
     "testFiles": [
         "test.ts"
     ],
+    "targetVersions": {
+        "target": "6.0.22",
+        "targetId": "microbit"
+    },
     "supportedTargets": [
         "microbit"
     ],
