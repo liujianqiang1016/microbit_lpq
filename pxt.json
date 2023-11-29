@@ -1,5 +1,5 @@
 {
-    "name": "microbit-lpq",
+    "name": "microbit",
     "description": "",
     "dependencies": {
         "core": "*",
