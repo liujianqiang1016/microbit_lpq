@@ -10,7 +10,9 @@
         "pxt-DHT11_DHT22": "github:alankrantas/pxt-dht11_dht22#v0.0.3",
         "i2cLCD1602": "github:makecode-extensions/i2clcd1602#v1.5.0",
         "TM1650": "github:makecode-extensions/tm1650#v1.1.0",
-        "Mbit_IR_V2": "github:liujianqiang1016/yahboom_ir_v2#6965a9eeff8c294a9f8bd61a76740198e332a103"
+        "Mbit_IR_V2": "github:liujianqiang1016/yahboom_ir_v2#6965a9eeff8c294a9f8bd61a76740198e332a103",
+        "pxt-28byj-48-stepper": "github:tinkertanker/pxt-stepper-motor#v0.0.5",
+        "pxt-sonar": "github:microsoft/pxt-sonar#v0.0.5"
     },
     "files": [
         "main.blocks",
