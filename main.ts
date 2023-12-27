@@ -5,53 +5,8 @@ function ElevatorUpAndDown (floor_count: number) {
         motor.moveAntiClockwise(1180 * Math.abs(floor_count), stepUnit.Steps)
     }
 }
-function DisplayDHT11 () {
-    dht11_dht22.queryData(
-    DHTtype.DHT11,
-    DigitalPin.P12,
-    true,
-    false,
-    false
-    )
-    if (dht11_dht22.readDataSuccessful()) {
-        I2C_LCD1602.ShowNumber(dht11_dht22.readData(dataType.humidity), 11, 0)
-        I2C_LCD1602.ShowNumber(dht11_dht22.readData(dataType.temperature), 11, 1)
-    }
-}
-function DisplayDS3231 () {
-    if (DS3231.month() < 10) {
-        I2C_LCD1602.ShowNumber(0, 0, 0)
-        I2C_LCD1602.ShowNumber(DS3231.month(), 1, 0)
-    } else {
-        I2C_LCD1602.ShowNumber(DS3231.month(), 0, 0)
-    }
-    I2C_LCD1602.ShowString("/", 2, 0)
-    if (DS3231.date() < 10) {
-        I2C_LCD1602.ShowNumber(0, 3, 0)
-        I2C_LCD1602.ShowNumber(DS3231.date(), 4, 0)
-    } else {
-        I2C_LCD1602.ShowNumber(DS3231.date(), 3, 0)
-    }
-    if (DS3231.hour() < 10) {
-        I2C_LCD1602.ShowNumber(0, 6, 0)
-        I2C_LCD1602.ShowNumber(DS3231.hour(), 7, 0)
-    } else {
-        I2C_LCD1602.ShowNumber(DS3231.hour(), 6, 0)
-    }
-    I2C_LCD1602.ShowString(":", 8, 0)
-    if (DS3231.minute() < 10) {
-        I2C_LCD1602.ShowNumber(0, 9, 0)
-        I2C_LCD1602.ShowNumber(DS3231.minute(), 10, 0)
-    } else {
-        I2C_LCD1602.ShowNumber(DS3231.minute(), 9, 0)
-    }
-    I2C_LCD1602.ShowString(":", 11, 0)
-    if (DS3231.second() < 10) {
-        I2C_LCD1602.ShowNumber(0, 12, 0)
-        I2C_LCD1602.ShowNumber(DS3231.second(), 13, 0)
-    } else {
-        I2C_LCD1602.ShowNumber(DS3231.second(), 12, 0)
-    }
+function Display () {
+    I2C_LCD1602.ShowString("Terry's Elevator", 0, 0)
     if (floor_change_state == 2) {
         I2C_LCD1602.ShowString("floor", 0, 1)
         I2C_LCD1602.ShowNumber(current_floor, 6, 1)
@@ -71,7 +26,6 @@ let floor_change_state = 0
 floor_change_state = 1
 let lcd_light_flag = 1
 let key_count = 0
-let dht11_count = 0
 current_floor = 1
 targe_floor = 1
 basic.clearScreen()
@@ -85,7 +39,7 @@ DigitalPin.P2,
 DigitalPin.P3
 )
 basic.forever(function () {
-    DisplayDS3231()
+    Display()
 })
 basic.forever(function () {
     if (pins.digitalReadPin(DigitalPin.P4) == 1) {
